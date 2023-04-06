@@ -1,0 +1,51 @@
+import numpy as np
+import statistics as stat
+import random
+import matplotlib.pyplot as plt
+
+#Analytically calculate the ratio S.
+#S= Area of the blue triangle/Area of the square
+
+Area_triangle=(1/2)*2*2
+Area_square=2*2
+S=Area_triangle/Area_square
+print(f'ratio S= {S}')
+
+def plot_lines(x1,x2,y1,y2):
+    #plot triangle and square
+    x=np.linspace(-1,1);
+    y=np.linspace(-1,1);
+    xx=[x1,x2];
+    yy=[y1,y2];
+
+    slope_intercept01 = np.polyfit(xx,yy,1)
+
+    #print(slope_intercept01)
+    line1=slope_intercept01[0]*x+slope_intercept01[1]
+    plt.plot(x,line1)
+    plt.axis([-1, 1.0, -1, 1.0])
+    print(line1)
+    return slope_intercept01
+    
+
+def plotlines(x1,x2,y1,y2):
+    #plot triangle and square
+    x=np.linspace(-1,1);
+    y=np.linspace(-1,1);
+    xx=[x1,x2];
+    yy=[y1,y2];
+
+    slope_intercept01 = np.polyfit(xx,yy,1)
+
+    #print(slope_intercept01)
+    line1=slope_intercept01[0]*x+slope_intercept01[1]
+    #plt.plot(x,line1)
+    return slope_intercept01
+
+a=plotlines(-1,0,-1,1)
+print(a[0])
+
+line1=plot_lines(-1,0,-1,1)
+l1=plotlines(-1,0,-1,1)
+line2=plot_lines(1,0,-1,1)
+l2=plotlines(1,0,-1,1)
